@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:showIn="@layout/act_main"
-        tools:context=".MainActivityFragment">
+        tools:context=".ca.presentation.view.main.fragments.TransactionsListFragment">
 
     <TextView
             android:layout_width="wrap_content"

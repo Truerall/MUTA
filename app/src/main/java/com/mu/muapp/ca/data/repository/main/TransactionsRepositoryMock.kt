@@ -1,17 +1,23 @@
 package com.mu.muapp.ca.data.repository.main
 
-import android.content.Context
+import android.app.Application
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import com.mu.muapp.ca.data.source.api.response.TransactionsResponse
 import com.mu.muapp.ca.domain.entity.Transaction
-import com.mu.muapp.utils.rx.SchedulerProvider
+import com.mu.muapp.utils.rx.ISchedulerProvider
 import io.reactivex.Single
 import io.reactivex.rxkotlin.subscribeBy
 import java.io.InputStreamReader
+import javax.inject.Inject
 
-class TransactionsRepositoryMock(context: Context, schedulerProvider: SchedulerProvider) : ITransactionsRepository {
+class TransactionsRepositoryMock @Inject constructor(
+    context: Application,
+    schedulerProvider: ISchedulerProvider,
+    gson: Gson
+) : ITransactionsRepository {
+
     private val transactionsList: MutableList<Transaction> = mutableListOf()
 
     init {
@@ -21,7 +27,7 @@ class TransactionsRepositoryMock(context: Context, schedulerProvider: SchedulerP
             val ims = assetManager.open("transactions.json")
 
             val reader = InputStreamReader(ims)
-            data = Gson().fromJson(reader, object : TypeToken<TransactionsResponse>() {}.type)
+            data = gson.fromJson(reader, object : TypeToken<TransactionsResponse>() {}.type)
 
             if (data == null) {
                 throw JsonParseException("Bad json object")

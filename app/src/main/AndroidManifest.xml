@@ -3,6 +3,7 @@
           package="com.mu.muapp">
 
     <application
+            android:name=".MUApp"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -11,7 +12,7 @@
             android:theme="@style/AppTheme"
             android:fullBackupContent="false">
         <activity
-                android:name=".MainActivity"
+                android:name=".ca.presentation.view.main.MainActivity"
                 android:label="@string/app_name"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

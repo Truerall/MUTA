@@ -1,24 +1,18 @@
-package com.mu.muapp
+package com.mu.muapp.ca.presentation.view.main
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-
+import com.mu.muapp.R
+import com.mu.muapp.ca.presentation.view.base.BaseInjectionActivity
 import kotlinx.android.synthetic.main.act_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseInjectionActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_main)
         setSupportActionBar(toolbar)
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -36,4 +30,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }

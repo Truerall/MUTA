@@ -2,7 +2,7 @@ package com.mu.muapp.utils.rx;
 
 import io.reactivex.Scheduler;
 
-public interface SchedulerProvider {
+public interface ISchedulerProvider {
 
     Scheduler ui();
 
