@@ -1,9 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-kapt'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -21,6 +18,20 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        mock {
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".mock"
+            debuggable true
+            minifyEnabled false
+        }
+    }
+    sourceSets {
+        main.res.srcDirs += 'src/main/res/layout/activity'
+        main.res.srcDirs += 'src/main/res/layout/fragment'
+        main.res.srcDirs += 'src/main/res/layout/item'
+        main.res.srcDirs += 'src/main/res/layout/toolbar'
+        main.res.srcDirs += 'src/main/res/layout/vs'
+        main.res.srcDirs += 'src/main/res/layout/include'
     }
 }
 
