@@ -1,0 +1,9 @@
+<resources>
+    <string name="dm_frg_transactions_list_row_tv_description">[Dummy transaction description]</string>
+    <string name="dm_frg_transactions_list_row_tv_amount">[-91.75]</string>
+
+    <!-- state layout -->
+
+    <string name="dummy_error_message">[Terrible error. Terrifying message describing error.]</string>
+
+</resources>

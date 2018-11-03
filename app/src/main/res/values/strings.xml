@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MUApp</string>
     <string name="action_settings">Settings</string>
+
+    <!-- state layout -->
+    <string name="vs_tv_error">Sorry, something went wrong.</string>
+    <string name="vs_tv_no_data">No data.</string>
+    <string name="vs_tv_add_data">Please swipe to refresh data.</string>
 </resources>
