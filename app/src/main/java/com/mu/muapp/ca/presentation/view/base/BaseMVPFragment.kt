@@ -10,13 +10,15 @@ import javax.inject.Inject
 
 /*
     By default your view must be able to provide basic states - error / empty / progress.
-    You can disable this using BasePresenterFragment boolean properties with related names
+    You can disable this using BaseMVPFragment boolean properties with related names
  */
-abstract class BasePresenterFragment<PresenterType : BaseContract.BasePresenter<BaseContract.BaseView>> :
-    BaseInjectionFragment(), BaseContract.BaseView {
+abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter> :
+    BaseInjectionFragment(),
+    BaseContract.BaseView {
 
     @Inject
     lateinit var presenter: PresenterType
+
     //Custom view could be supported, but if you have need fot that - better override  all methods for that view type in inheritor class
 
     private val vEmpty: View? by lazy { if (isEmptyViewEnabled) vsEmpty.inflate() else null }

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dm_frg_transactions_list_row_tv_amount"
-            app:layout_constraintLeft_toEndOf="@+id/item_transaction_tv_description"
+            app:layout_constraintStart_toEndOf="@+id/item_transaction_tv_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>

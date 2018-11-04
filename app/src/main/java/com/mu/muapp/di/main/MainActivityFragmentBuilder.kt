@@ -12,9 +12,9 @@ import dagger.android.ContributesAndroidInjector
 abstract class MainActivityFragmentBuilder{
     @FragmentScope
     @ContributesAndroidInjector(modules = [TransactionListFragmentModule::class])
-    internal abstract fun bindTransactionsListFragment(): TransactionsListFragment
+    abstract fun bindTransactionsListFragment(): TransactionsListFragment
 
     @FragmentScope
     @ContributesAndroidInjector(modules = [TransactionDetailsFragmentModule::class])
-    internal abstract fun bindTransactionsDetailsFragment(): TransactionsDetailsFragment
+    abstract fun bindTransactionsDetailsFragment(): TransactionsDetailsFragment
 }

@@ -31,8 +31,8 @@ class BaseContract {
         fun clearState()
     }
 
-    interface BasePresenter<in VIEW> {
-        fun start(view: VIEW)
+    interface BasePresenter {
+        fun start(view: BaseView)
         fun stop()
     }
 }
