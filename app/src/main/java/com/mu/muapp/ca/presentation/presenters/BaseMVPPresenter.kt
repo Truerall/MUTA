@@ -4,8 +4,9 @@ import com.mu.muapp.ca.presentation.view.base.BaseContract
 
 abstract class BaseMVPPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter{
 
-    var view : T? = null;
+    protected var view : T? = null
 
+    @Suppress("UNCHECKED_CAST")
     override fun start(view: BaseContract.BaseView) {
         this.view = view as? T
         // T is always inheritor of BaseView, so its ok.

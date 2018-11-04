@@ -1,24 +1,20 @@
 package com.mu.muapp.ca.data.repository.main
 
-import android.app.Application
-import com.google.gson.Gson
 import com.mu.muapp.ca.domain.entity.Transaction
-import com.mu.muapp.utils.rx.ISchedulerProvider
+import io.reactivex.Single
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
  * NO API provided for test assignment, so this repo is just a dummy to show approach with switching of repos
  * according to build type.
  */
-class TransactionsRepository @Inject constructor(
-    context: Application,
-    schedulerProvider: ISchedulerProvider,
-    gson: Gson
-) : ITransactionsRepository {
+class TransactionsRepository @Inject constructor() : ITransactionsRepository {
 
-    private val transactionsList: MutableList<Transaction> = mutableListOf()
+    private val transactionsList: List<Transaction> = emptyList()
 
-    override fun getTransactions(): List<Transaction> {
-        return transactionsList
+    override fun getTransactions(): Single<List<Transaction>> {
+        return Single.just(transactionsList).delay(5, TimeUnit.SECONDS)
     }
+
 }
