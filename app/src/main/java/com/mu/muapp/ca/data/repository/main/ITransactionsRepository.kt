@@ -1,8 +1,8 @@
 package com.mu.muapp.ca.data.repository.main
 
-import com.mu.muapp.ca.domain.entity.Transaction
+import com.mu.muapp.ca.data.source.api.response.TransactionsResponse
 import io.reactivex.Single
 
 interface ITransactionsRepository {
-    fun getTransactions(): Single<List<Transaction>>
+    fun getTransactions(): Single<TransactionsResponse>
 }

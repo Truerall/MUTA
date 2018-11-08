@@ -29,6 +29,11 @@ abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter> :
     private var isErrorViewEnabled = true
     private var isProgressViewEnabled = true
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViewStubs()

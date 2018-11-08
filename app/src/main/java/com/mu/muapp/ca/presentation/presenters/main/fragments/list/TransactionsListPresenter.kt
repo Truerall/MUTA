@@ -1,6 +1,6 @@
 package com.mu.muapp.ca.presentation.presenters.main.fragments.list
 
-import com.mu.muapp.ca.domain.entity.Transaction
+import com.mu.muapp.ca.data.source.api.response.TransactionsResponse
 import com.mu.muapp.ca.domain.usecase.main.GetTransactionsUseCase
 import com.mu.muapp.ca.presentation.presenters.BaseMVPPresenter
 import io.reactivex.observers.DisposableSingleObserver
@@ -17,14 +17,16 @@ class TransactionsListPresenter @Inject constructor(private val getTransactionsU
     }
 
     private inner class TransactionsListObserver constructor(private val presenter: WeakReference<TransactionsListPresenter>) :
-        DisposableSingleObserver<List<Transaction>>() {
+        DisposableSingleObserver<TransactionsResponse>() {
 
-        override fun onSuccess(list: List<Transaction>) {
-            presenter.get()?.view?.displayTransactions(list)
+        override fun onSuccess(resp: TransactionsResponse) {
+            presenter.get()?.view?.displayAccData(resp.account, resp.balance)
+            presenter.get()?.view?.displayTransactions(resp.transactions)
             presenter.get()?.view?.hideProgress()
         }
 
         override fun onError(e: Throwable) {
+            println("yep -> "+e.message)
             presenter.get()?.view?.onError()
             presenter.get()?.view?.hideProgress()
         }

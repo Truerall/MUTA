@@ -1,6 +1,6 @@
 package com.mu.muapp.ca.data.repository.main
 
-import com.mu.muapp.ca.domain.entity.Transaction
+import com.mu.muapp.ca.data.source.api.response.TransactionsResponse
 import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -11,10 +11,8 @@ import javax.inject.Inject
  */
 class TransactionsRepository @Inject constructor() : ITransactionsRepository {
 
-    private val transactionsList: List<Transaction> = emptyList()
-
-    override fun getTransactions(): Single<List<Transaction>> {
-        return Single.just(transactionsList).delay(5, TimeUnit.SECONDS)
+    override fun getTransactions(): Single<TransactionsResponse> {
+        return Single.just(TransactionsResponse("", "", emptyList())).delay(5, TimeUnit.SECONDS)
     }
 
 }

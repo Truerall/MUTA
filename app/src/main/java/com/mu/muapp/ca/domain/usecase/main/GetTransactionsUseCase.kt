@@ -2,7 +2,7 @@ package com.mu.muapp.ca.domain.usecase.main
 
 import com.mu.muapp.BuildConfig
 import com.mu.muapp.ca.data.repository.main.ITransactionsRepository
-import com.mu.muapp.ca.domain.entity.Transaction
+import com.mu.muapp.ca.data.source.api.response.TransactionsResponse
 import com.mu.muapp.ca.domain.usecase.base.SingleUseCase
 import com.mu.muapp.utils.rx.ISchedulerProvider
 import io.reactivex.Single
@@ -14,9 +14,9 @@ class GetTransactionsUseCase
 constructor(
     schedulerProvider: ISchedulerProvider,
     @Named(BuildConfig.BUILD_TYPE) private val iTransactionsRepository: ITransactionsRepository
-) : SingleUseCase<List<Transaction>, Unit>(schedulerProvider.io(), schedulerProvider.ui()) {
+) : SingleUseCase<TransactionsResponse, Unit>(schedulerProvider.io(), schedulerProvider.ui()) {
 
-    override fun buildUseCaseSingle(params: Unit?): Single<List<Transaction>> {
+    override fun buildUseCaseSingle(params: Unit?): Single<TransactionsResponse> {
         return iTransactionsRepository.getTransactions()
     }
 }

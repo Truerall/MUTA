@@ -1,7 +1,7 @@
 package com.mu.muapp.di.main
 
 import com.mu.muapp.ca.presentation.view.main.fragments.TransactionsDetailsFragment
-import com.mu.muapp.ca.presentation.view.main.fragments.TransactionsListFragment
+import com.mu.muapp.ca.presentation.view.main.fragments.list.TransactionsListFragment
 import com.mu.muapp.di.main.fragments.TransactionDetailsFragmentModule
 import com.mu.muapp.di.main.fragments.TransactionListFragmentModule
 import com.mu.muapp.di.scopes.FragmentScope
