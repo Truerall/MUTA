@@ -24,6 +24,7 @@ class TransactionsRepositoryMock @Inject constructor(
             data = gson.fromJson(reader, object : TypeToken<TransactionsResponse>() {}.type)
 
             with(data) {
+                //data = TransactionsResponse(account, balance, emptyList()) // to test empty state
                 data = TransactionsResponse(account, balance, data.transactions.sortedByDescending { it.date })
             }
 
@@ -34,6 +35,6 @@ class TransactionsRepositoryMock @Inject constructor(
     }
 
     companion object {
-        const val REQUEST_DELAY_TIME: Long = 3
+        const val REQUEST_DELAY_TIME: Long = 5
     }
 }

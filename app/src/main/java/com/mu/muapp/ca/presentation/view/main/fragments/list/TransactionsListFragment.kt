@@ -10,12 +10,14 @@ import com.mu.muapp.ca.domain.entity.Transaction
 import com.mu.muapp.ca.presentation.presenters.main.fragments.list.TransactionsListContract
 import com.mu.muapp.ca.presentation.view.base.BaseMVPFragment
 import com.mu.muapp.ca.presentation.view.main.fragments.list.adapter.TransactionsListAdapter
+import com.mu.muapp.ca.presentation.view.main.fragments.list.viewModel.TransactionListFragmentViewModel
 import kotlinx.android.synthetic.main.frg_transactions_list.*
 
 class TransactionsListFragment :
     BaseMVPFragment<TransactionsListContract.ITransactionsListPresenter>(),
     TransactionsListContract.ITransactionsListView {
 
+    private lateinit var viewModel: TransactionListFragmentViewModel
     private lateinit var adapter: TransactionsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +37,21 @@ class TransactionsListFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         rvTransactions.layoutManager = LinearLayoutManager(context)
         rvTransactions.adapter = adapter
-        savedInstanceState ?: presenter.getTransactions()
+
+        if (savedInstanceState == null) {
+            presenter.getTransactions()
+        } else {
+            viewModel.let {
+                displayAccData(it.account, it.balance)
+            }
+        }
     }
 
     override fun displayAccData(account: String, balance: String) {
+        viewModel = TransactionListFragmentViewModel(account, balance)
         frg_transactions_tv_acc_num_data.text = account
         frg_transactions_tv_acc_balance.text = balance
     }

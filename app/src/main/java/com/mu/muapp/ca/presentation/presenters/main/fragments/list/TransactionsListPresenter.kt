@@ -21,7 +21,11 @@ class TransactionsListPresenter @Inject constructor(private val getTransactionsU
 
         override fun onSuccess(resp: TransactionsResponse) {
             presenter.get()?.view?.displayAccData(resp.account, resp.balance)
-            presenter.get()?.view?.displayTransactions(resp.transactions)
+            if(resp.transactions.isEmpty()){
+                presenter.get()?.view?.showEmptyState()
+            } else {
+                presenter.get()?.view?.displayTransactions(resp.transactions)
+            }
             presenter.get()?.view?.hideProgress()
         }
 

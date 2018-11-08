@@ -2,88 +2,79 @@
 <android.support.constraint.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ca.presentation.view.main.fragments.list.TransactionsListFragment">
 
-    <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/frg_transactions_cv_acc_data"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_margin="@dimen/dp8"
-            card_view:contentPaddingBottom="@dimen/dp8"
-            card_view:contentPaddingTop="@dimen/dp8"
-            app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.constraint.ConstraintLayout
-                android:id="@+id/constraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <android.support.constraint.Guideline
-                    android:id="@+id/guidline_horizontal_50"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent=".50"/>
-
-            <android.support.constraint.Guideline
-                    android:id="@+id/guidline_vert_75"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent=".75"/>
-
-            <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/frg_transactions_iv_acc_img"
-                    app:srcCompat="@drawable/ic_monetization_on_black_24dp"
-                    android:layout_width="@dimen/dp48"
-                    android:layout_height="@dimen/dp48"
-                    android:layout_marginStart="@dimen/dp8"
-                    app:layout_constraintStart_toStartOf="parent"
+            <android.support.constraint.ConstraintLayout
+                    android:id="@+id/frg_transactions_cl_acc_data"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toTopOf="@id/empty"
+                    app:layout_constraintVertical_chainStyle="spread"
+                    android:layout_margin="@dimen/dp8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/frg_transactions_tv_acc_num_label"
-                    style="@style/TextListRowHeaderDescriptionSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/frg_transactions_tv_account_number"
-                    android:layout_marginStart="@dimen/dp8"
-                    app:layout_constraintStart_toEndOf="@+id/frg_transactions_iv_acc_img"
-                    app:layout_constraintBottom_toTopOf="@id/guidline_horizontal_50" />
+                <android.support.constraint.Guideline
+                        android:id="@+id/guidline_horizontal_50"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent=".50"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/frg_transactions_tv_acc_num_data"
-                    style="@style/TextListRowContentMedium"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dm_frg_transactions_tv_acc_number"
-                    android:layout_marginStart="@dimen/dp8"
-                    app:layout_constraintStart_toEndOf="@+id/frg_transactions_iv_acc_img"
-                    app:layout_constraintTop_toBottomOf="@id/guidline_horizontal_50" />
+                <android.support.constraint.Guideline
+                        android:id="@+id/guidline_vert_75"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent=".75"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/frg_transactions_tv_acc_balance"
-                    style="@style/TextListRowContentMedium.Bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dm_frg_transactions_list_row_tv_amount"
-                    app:layout_constraintHorizontal_bias="1"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guidline_vert_75"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="8dp"/>
+                <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/frg_transactions_iv_acc_img"
+                        app:srcCompat="@drawable/ic_monetization_on_black_24dp"
+                        android:layout_width="@dimen/dp48"
+                        android:layout_height="@dimen/dp48"
+                        android:layout_marginStart="@dimen/dp8"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        </android.support.constraint.ConstraintLayout>
-    </android.support.v7.widget.CardView>
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/frg_transactions_tv_acc_num_label"
+                        style="@style/TextListRowHeaderDescriptionSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/frg_transactions_tv_account_number"
+                        android:layout_marginStart="@dimen/dp8"
+                        app:layout_constraintStart_toEndOf="@+id/frg_transactions_iv_acc_img"
+                        app:layout_constraintBottom_toTopOf="@id/guidline_horizontal_50"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/frg_transactions_tv_acc_num_data"
+                        style="@style/TextListRowContentMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/dm_frg_transactions_tv_acc_number"
+                        android:layout_marginStart="@dimen/dp8"
+                        app:layout_constraintStart_toEndOf="@+id/frg_transactions_iv_acc_img"
+                        app:layout_constraintTop_toBottomOf="@id/guidline_horizontal_50"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/frg_transactions_tv_acc_balance"
+                        style="@style/TextListRowContentMedium.Bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="@string/dm_frg_transactions_list_row_tv_amount"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/guidline_vert_75"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"/>
+
+            </android.support.constraint.ConstraintLayout>
 
     <android.support.v7.widget.RecyclerView
             android:id="@+id/rvTransactions"
@@ -91,8 +82,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp8"
             tools:listitem="@layout/item_transaction"
-            app:layout_constraintTop_toBottomOf="@+id/frg_transactions_cv_acc_data"/>
+            app:layout_constraintTop_toBottomOf="@+id/frg_transactions_cl_acc_data"/>
 
-    <include layout="@layout/state_layout"/>
+    <include layout="@layout/state_layout_no_empty"/>
+
+    <include
+            android:id="@+id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/frg_transactions_cl_acc_data"
+            app:layout_constraintBottom_toBottomOf="parent"
+            layout="@layout/state_layout_only_empty"/>
 
 </android.support.constraint.ConstraintLayout>
