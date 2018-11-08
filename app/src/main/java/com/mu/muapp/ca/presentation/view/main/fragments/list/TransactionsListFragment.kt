@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import com.mu.muapp.R
 import com.mu.muapp.ca.domain.entity.Transaction
 import com.mu.muapp.ca.presentation.presenters.main.fragments.list.TransactionsListContract
+import com.mu.muapp.ca.presentation.presenters.viewState.ViewState
 import com.mu.muapp.ca.presentation.view.base.BaseMVPFragment
 import com.mu.muapp.ca.presentation.view.main.fragments.list.adapter.TransactionsListAdapter
 import com.mu.muapp.ca.presentation.view.main.fragments.list.viewModel.TransactionListFragmentViewModel
 import kotlinx.android.synthetic.main.frg_transactions_list.*
 
 class TransactionsListFragment :
-    BaseMVPFragment<TransactionsListContract.ITransactionsListPresenter>(),
+    BaseMVPFragment<TransactionsListContract.ITransactionsListPresenter, TransactionListFragmentViewModel>(),
     TransactionsListContract.ITransactionsListView {
 
-    private lateinit var viewModel: TransactionListFragmentViewModel
     private lateinit var adapter: TransactionsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,14 +44,15 @@ class TransactionsListFragment :
         if (savedInstanceState == null) {
             presenter.getTransactions()
         } else {
-            viewModel.let {
-                displayAccData(it.account, it.balance)
-            }
+            presenter.applyState(viewModel.viewState)
+            frg_transactions_tv_acc_num_data.text = viewModel.account
+            frg_transactions_tv_acc_balance.text = viewModel.balance
         }
     }
 
     override fun displayAccData(account: String, balance: String) {
         viewModel = TransactionListFragmentViewModel(account, balance)
+        viewModel.viewState = ViewState.IDLE
         frg_transactions_tv_acc_num_data.text = account
         frg_transactions_tv_acc_balance.text = balance
     }

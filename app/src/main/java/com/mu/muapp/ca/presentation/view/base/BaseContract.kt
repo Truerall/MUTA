@@ -1,5 +1,7 @@
 package com.mu.muapp.ca.presentation.view.base
 
+import com.mu.muapp.ca.presentation.presenters.viewState.ViewState
+
 class BaseContract {
     interface BaseView {
         fun isAvailable(): Boolean
@@ -34,5 +36,6 @@ class BaseContract {
     interface BasePresenter {
         fun start(view: BaseView)
         fun stop()
+        fun applyState(state: ViewState)
     }
 }

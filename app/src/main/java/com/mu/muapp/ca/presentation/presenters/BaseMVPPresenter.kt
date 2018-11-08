@@ -1,10 +1,11 @@
 package com.mu.muapp.ca.presentation.presenters
 
+import com.mu.muapp.ca.presentation.presenters.viewState.ViewState
 import com.mu.muapp.ca.presentation.view.base.BaseContract
 
-abstract class BaseMVPPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter{
+abstract class BaseMVPPresenter<T : BaseContract.BaseView> : BaseContract.BasePresenter {
 
-    protected var view : T? = null
+    protected var view: T? = null
 
     @Suppress("UNCHECKED_CAST")
     override fun start(view: BaseContract.BaseView) {
@@ -16,5 +17,16 @@ abstract class BaseMVPPresenter<T : BaseContract.BaseView> : BaseContract.BasePr
 
     override fun stop() {
         view = null
+    }
+
+    override fun applyState(state: ViewState) {
+        when (state) { //TODO add messages
+            ViewState.EMPTY -> view?.showEmptyState()
+            ViewState.ERROR -> view?.onError()
+            ViewState.PROGRESS -> {
+                println("state - enabling progress")
+                view?.showProgress()
+            }
+        }
     }
 }
