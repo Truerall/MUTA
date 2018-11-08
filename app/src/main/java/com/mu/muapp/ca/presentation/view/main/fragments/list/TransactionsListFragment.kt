@@ -41,7 +41,8 @@ class TransactionsListFragment :
     }
 
     override fun displayAccData(account: String, balance: String) {
-        //boom
+        frg_transactions_tv_acc_num_data.text = account
+        frg_transactions_tv_acc_balance.text = balance
     }
 
     override fun displayTransactions(list: List<Transaction>) {
