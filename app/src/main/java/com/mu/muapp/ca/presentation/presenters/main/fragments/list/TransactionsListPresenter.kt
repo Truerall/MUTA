@@ -35,4 +35,8 @@ class TransactionsListPresenter @Inject constructor(private val getTransactionsU
             presenter.get()?.view?.hideProgress()
         }
     }
+
+    override fun disposeTasks() {
+        getTransactionsUseCase.dispose()
+    }
 }

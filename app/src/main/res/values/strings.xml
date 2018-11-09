@@ -2,9 +2,14 @@
     <string name="app_name">MUApp</string>
     <string name="action_settings">Settings</string>
 
+    <string name="frg_transactions_list_tv_account_number">Account number</string>
+    <string name="frg_transaction_details_tv_other_account_number">Other account number</string>
+
+    <string name="frg_transaction_details_tv_details">Details</string>
+
     <!-- state layout -->
     <string name="vs_tv_error">Sorry, something went wrong.</string>
     <string name="vs_tv_no_data">No data.</string>
     <string name="vs_tv_add_data">Please swipe to refresh data.</string>
-    <string name="frg_transactions_tv_account_number">Account number</string>
+
 </resources>

@@ -7,6 +7,10 @@ class TransactionDetailsPresenter @Inject constructor() :
     BaseMVPPresenter<TransactionDetailsContract.ITransactionDetailsView>(),
     TransactionDetailsContract.ITransactionDetailsPresenter {
 
+    override fun disposeTasks() {
+
+    }
+
     override fun detTransactionDetails() {
         view?.displayTransactionDetails()
     }

@@ -8,7 +8,7 @@
 
 
             <android.support.constraint.ConstraintLayout
-                    android:id="@+id/frg_transactions_cl_acc_data"
+                    android:id="@+id/frg_transactions_list_cl_acc_data"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/empty"
                     app:layout_constraintVertical_chainStyle="spread"
@@ -31,7 +31,7 @@
                         app:layout_constraintGuide_percent=".75"/>
 
                 <android.support.v7.widget.AppCompatImageView
-                        android:id="@+id/frg_transactions_iv_acc_img"
+                        android:id="@+id/frg_transactions_list_iv_acc_img"
                         app:srcCompat="@drawable/ic_monetization_on_black_24dp"
                         android:layout_width="@dimen/dp48"
                         android:layout_height="@dimen/dp48"
@@ -41,28 +41,28 @@
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/frg_transactions_tv_acc_num_label"
+                        android:id="@+id/frg_transactions_list_tv_acc_num_label"
                         style="@style/TextListRowHeaderDescriptionSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/frg_transactions_tv_account_number"
+                        android:text="@string/frg_transactions_list_tv_account_number"
                         android:layout_marginStart="@dimen/dp8"
-                        app:layout_constraintStart_toEndOf="@+id/frg_transactions_iv_acc_img"
+                        app:layout_constraintStart_toEndOf="@+id/frg_transactions_list_iv_acc_img"
                         app:layout_constraintBottom_toTopOf="@id/guidline_horizontal_50"/>
 
                 <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/frg_transactions_tv_acc_num_data"
-                        style="@style/TextListRowContentMedium"
+                        android:id="@+id/frg_transactions_list_tv_acc_num_data"
+                        style="@style/TextListRowContentMedium.SingleRow"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="@string/dm_frg_transactions_tv_acc_number"
+                        tools:text="@string/dm_frg_transactions_list_tv_acc_number"
                         android:layout_marginStart="@dimen/dp8"
-                        app:layout_constraintStart_toEndOf="@+id/frg_transactions_iv_acc_img"
+                        app:layout_constraintStart_toEndOf="@+id/frg_transactions_list_iv_acc_img"
                         app:layout_constraintTop_toBottomOf="@id/guidline_horizontal_50"/>
 
                 <android.support.v7.widget.AppCompatTextView
-                        android:id="@+id/frg_transactions_tv_acc_balance"
-                        style="@style/TextListRowContentMedium.Bold"
+                        android:id="@+id/frg_transactions_list_tv_acc_balance"
+                        style="@style/TextListRowContentMedium.SingleRow.Bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="@string/dm_frg_transactions_list_row_tv_amount"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp8"
             tools:listitem="@layout/item_transaction"
-            app:layout_constraintTop_toBottomOf="@+id/frg_transactions_cl_acc_data"/>
+            app:layout_constraintTop_toBottomOf="@+id/frg_transactions_list_cl_acc_data"/>
 
     <include layout="@layout/state_layout_no_empty"/>
 
@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintVertical_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/frg_transactions_cl_acc_data"
+            app:layout_constraintTop_toBottomOf="@id/frg_transactions_list_cl_acc_data"
             app:layout_constraintBottom_toBottomOf="parent"
             layout="@layout/state_layout_only_empty"/>
 

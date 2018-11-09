@@ -35,7 +35,11 @@ class BaseContract {
 
     interface BasePresenter {
         fun start(view: BaseView)
+
         fun stop()
+
         fun applyState(state: ViewState)
+
+        fun disposeTasks()
     }
 }

@@ -19,9 +19,9 @@ class TransactionsListAdapter(val listener: (TransactionsListItem.BasicTransacti
             data.add(
                 BasicTransactionItem(
                     TransactionsListItem.BasicTransactionViewModel(
+                        it.id,
                         it.description,
-                        it.amount,
-                        it.date
+                        it.amount
                     ),
                     listener
                 )

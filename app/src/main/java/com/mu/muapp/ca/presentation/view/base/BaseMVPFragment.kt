@@ -14,7 +14,7 @@ import javax.inject.Inject
     By default your view must be able to provide basic states - error / empty / progress.
     You can disable this using BaseMVPFragment boolean properties with related names
  */
-abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter, ViewModelType : BaseViewModel> :
+abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter, ViewModelType : BaseViewModel, Router> :
     BaseInjectionFragment(),
     BaseContract.BaseView {
 
@@ -23,6 +23,8 @@ abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter, ViewM
 
     @Inject
     lateinit var viewModel: ViewModelType
+
+    var router: Router? = null
 
     //Custom view could be supported, but if you have need fot that - better override  all methods for that view type in inheritor class
 
@@ -37,6 +39,7 @@ abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter, ViewM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         retainInstance = true
+        router = activity as Router
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,6 +54,11 @@ abstract class BaseMVPFragment<PresenterType : BaseContract.BasePresenter, ViewM
         vError = null
         vEmpty = null
         vProgress = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.disposeTasks()
     }
 
     private fun initViewStubs() {

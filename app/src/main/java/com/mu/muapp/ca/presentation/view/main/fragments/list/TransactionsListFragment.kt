@@ -10,23 +10,22 @@ import com.mu.muapp.ca.domain.entity.Transaction
 import com.mu.muapp.ca.presentation.presenters.main.fragments.list.TransactionsListContract
 import com.mu.muapp.ca.presentation.presenters.viewState.ViewState
 import com.mu.muapp.ca.presentation.view.base.BaseMVPFragment
+import com.mu.muapp.ca.presentation.view.main.MainRouter
 import com.mu.muapp.ca.presentation.view.main.fragments.list.adapter.TransactionsListAdapter
 import com.mu.muapp.ca.presentation.view.main.fragments.list.viewModel.TransactionListFragmentViewModel
 import kotlinx.android.synthetic.main.frg_transactions_list.*
 
 class TransactionsListFragment :
-    BaseMVPFragment<TransactionsListContract.ITransactionsListPresenter, TransactionListFragmentViewModel>(),
+    BaseMVPFragment<TransactionsListContract.ITransactionsListPresenter, TransactionListFragmentViewModel, MainRouter>(),
     TransactionsListContract.ITransactionsListView {
 
     private lateinit var adapter: TransactionsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = TransactionsListAdapter( //the frg is retained
+        adapter = TransactionsListAdapter(
             listener = { item, position ->
-                println("yep its clicked - " + item.description)
-                println("yep its position is - " + position)
-                println("yep its time is - " + item.date)
+                router?.openDetailsFragment(item.id)
             }
         )
     }
@@ -45,16 +44,16 @@ class TransactionsListFragment :
             presenter.getTransactions()
         } else {
             presenter.applyState(viewModel.viewState)
-            frg_transactions_tv_acc_num_data.text = viewModel.account
-            frg_transactions_tv_acc_balance.text = viewModel.balance
+            frg_transactions_list_tv_acc_num_data.text = viewModel.account
+            frg_transactions_list_tv_acc_balance.text = viewModel.balance
         }
     }
 
     override fun displayAccData(account: String, balance: String) {
         viewModel = TransactionListFragmentViewModel(account, balance)
         viewModel.viewState = ViewState.IDLE
-        frg_transactions_tv_acc_num_data.text = account
-        frg_transactions_tv_acc_balance.text = balance
+        frg_transactions_list_tv_acc_num_data.text = account
+        frg_transactions_list_tv_acc_balance.text = balance
     }
 
     override fun displayTransactions(list: List<Transaction>) {

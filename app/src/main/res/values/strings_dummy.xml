@@ -2,7 +2,9 @@
     <string name="dm_frg_transactions_list_row_tv_description">[Dummy transaction description]</string>
     <string name="dm_frg_transactions_list_row_tv_amount">[-91.75]</string>
 
-    <string name="dm_frg_transactions_tv_acc_number">[NL00DUMM0123456789]</string>
+    <string name="dm_frg_transactions_list_tv_acc_number">[NL00DUMM0123456789]</string>
+
+    <string name="dm_frg_transaction_details_tv_description">[Really interesting and exciting information about that fact how you have spent all your salary and savings last Friday]</string>
 
     <!-- state layout -->
 
