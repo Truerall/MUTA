@@ -61,7 +61,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/frg_transaction_details_tv_acc_num_data"/>
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/rvTaskDetails"
+            android:id="@+id/rvTransactionDetails"
             android:paddingStart="@dimen/dp16"
             android:paddingEnd="@dimen/dp16"
             android:layout_width="match_parent"

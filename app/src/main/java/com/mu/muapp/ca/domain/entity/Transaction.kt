@@ -10,4 +10,6 @@ data class Transaction(
     val otherAccount: String
 ) {
     val amountFloat: Float = amount.toFloat()
+    var amountBefore: String = ""
+    var amountAfter: String = ""
 }
