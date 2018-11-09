@@ -1,4 +1,4 @@
-# MUTA
+# MUTA (build_type = mock)
 
 Hi, this project is my implementation of test assigment. I would like to underline the fact that my main purpose was to create clean, easy-readable, robust and unit-tests-ready architecture, so UI of an app is quite simple.
 
