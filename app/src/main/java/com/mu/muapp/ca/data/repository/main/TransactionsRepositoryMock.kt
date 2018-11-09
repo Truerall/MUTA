@@ -29,11 +29,23 @@ class TransactionsRepositoryMock @Inject constructor(
 
             val reader = InputStreamReader(ims)
             data = gson.fromJson(reader, object : TypeToken<TransactionsResponse>() {}.type)
+            //data = TransactionsResponse(account, balance, emptyList()) // to test empty state
+            data = TransactionsResponse(data.account, data.balance, data.transactions.sortedByDescending { it.date })
 
             with(data) {
-                //data = TransactionsResponse(account, balance, emptyList()) // to test empty state
-                data = TransactionsResponse(account, balance, data.transactions.sortedByDescending { it.date })
+                transactions[0].amountAfter = balance.toBigDecimal()
+                transactions[0].amountBefore = transactions[0].amountAfter + transactions[0].amountFloat.unaryMinus()
+
+                transactions.forEachIndexed { index, transaction ->
+                    with(transaction) {
+                        if (index != 0) {
+                            amountAfter = transactions[index - 1].amountBefore
+                            amountBefore = amountAfter + amountFloat.unaryMinus()
+                        }
+                    }
+                }
             }
+
 
             //TODO calculations of current ammount
 
@@ -47,7 +59,7 @@ class TransactionsRepositoryMock @Inject constructor(
 
     override fun getTransaction(transactionId: String): Single<Transaction> {
         return Single.fromCallable {
-            cache.find { it.id == transactionId }  ?: throw Exception("Transaction not found")
+            cache.find { it.id == transactionId } ?: throw Exception("Transaction not found")
         }
     }
 

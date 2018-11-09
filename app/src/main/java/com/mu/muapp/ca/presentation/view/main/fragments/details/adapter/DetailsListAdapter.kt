@@ -17,8 +17,8 @@ class DetailsListAdapter(var context: Context?) : BaseAdapter<DetailsListItem>()
 
         data.add(BasicDetailsItem(DetailsListItem.BasicDetailsViewModel(context?.getString(R.string.frg_transaction_details_tv_description_label) ?: "", transaction.description)))
         data.add(BasicDetailsItem(DetailsListItem.BasicDetailsViewModel(context?.getString(R.string.frg_transaction_details_tv_date_label) ?: "", transaction.date.toString())))
-        data.add(BasicDetailsItem(DetailsListItem.BasicDetailsViewModel(context?.getString(R.string.frg_transaction_details_tv_amount_before_label) ?: "", transaction.amountBefore)))
-        data.add(BasicDetailsItem(DetailsListItem.BasicDetailsViewModel(context?.getString(R.string.frg_transaction_details_tv_amount_after_label) ?: "", transaction.amountAfter)))
+        data.add(BasicDetailsItem(DetailsListItem.BasicDetailsViewModel(context?.getString(R.string.frg_transaction_details_tv_amount_before_label) ?: "", transaction.amountBefore.toString())))
+        data.add(BasicDetailsItem(DetailsListItem.BasicDetailsViewModel(context?.getString(R.string.frg_transaction_details_tv_amount_after_label) ?: "", transaction.amountAfter.toString())))
 
         return data
     }

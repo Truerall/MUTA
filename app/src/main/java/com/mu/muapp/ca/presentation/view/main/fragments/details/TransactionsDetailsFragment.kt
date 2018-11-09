@@ -58,6 +58,7 @@ class TransactionsDetailsFragment :
 
     override fun displayTransactionDetails(transaction: Transaction) {
         frg_transaction_details_tv_acc_num_data.text = transaction.otherAccount
+        frg_transaction_details_tv_acc_balance.text = transaction.amount
         adapter.setData(transaction)
         viewModel.viewState = ViewState.IDLE
     }
