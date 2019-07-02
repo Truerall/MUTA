@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MUApp.iml" filepath="$PROJECT_DIR$/MUApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MUTA.iml" filepath="$PROJECT_DIR$/MUTA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
